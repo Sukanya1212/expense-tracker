@@ -4,7 +4,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 
-  // LOCAL development only (keep it)
   server: {
     port: 3000,
     proxy: {
@@ -15,12 +14,9 @@ export default defineConfig({
     }
   },
 
-  // REQUIRED FOR RENDER DEPLOYMENT
   preview: {
     host: true,
-    port: 3000,
-    allowedHosts: [
-      "expense-tracker-3f10.onrender.com"
-    ]
+    port: 4173,
+    allowedHosts: ['expense-tracker-3f10.onrender.com']
   }
 })
