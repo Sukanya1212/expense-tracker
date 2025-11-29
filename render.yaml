@@ -16,3 +16,13 @@ services:
       - key: JWT_SECRET
         value: ""
     autoDeploy: true
+  - name: expense-tracker-frontend
+    type: static
+    plan: free
+    repo: "https://github.com/Sukanya1212/expense-tracker"
+    branch: main
+    root: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars: []
+    autoDeploy: true
