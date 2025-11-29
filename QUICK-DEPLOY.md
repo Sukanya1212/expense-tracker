@@ -3,7 +3,7 @@
 ## ✅ Files Created for Deployment
 
 ### Backend Files:
-- ✅ `Procfile` - Heroku start command
+- ✅ `render.yaml` - Render IaC configuration (optional)
 - ✅ `package.json` - Updated with Node.js version
 - ✅ `.env` - Environment template
 
@@ -20,21 +20,20 @@
 
 ## 🚀 Quick Start (3 Steps)
 
-### 1. Deploy Backend to Heroku
+### 1. Deploy Backend to Render
 ```bash
-cd backend
-heroku login
-heroku create expense-tracker-api-yourname
-heroku config:set MONGO_URI="your_mongodb_uri"
-heroku config:set JWT_SECRET="mysecretkey123"
-git init && git add . && git commit -m "Deploy"
-git push heroku main
+# Push your repo to GitHub (if not already)
+# Then, in the Render dashboard: New → Web Service → Connect your GitHub repo
+# Build Command: npm install && npm run build
+# Start Command: npm run start
+# Add env vars in Render (MONGO_URI, JWT_SECRET, NODE_ENV=production)
+# Enable Auto-Deploy (recommended)
 ```
 
 ### 2. Deploy Frontend to Vercel
 ```bash
 cd frontend
-echo VITE_API_URL=https://your-heroku-app.herokuapp.com/api > .env.production
+echo VITE_API_URL=https://your-backend.onrender.com/api > .env.production
 npm install -g vercel
 vercel --prod
 ```
@@ -44,14 +43,15 @@ Edit `backend/src/server.ts` and add your Vercel URL to CORS origins, then:
 ```bash
 cd backend
 git add . && git commit -m "Update CORS"
-git push heroku main
+# Push to your GitHub remote; Render will auto-deploy if connected
+git push origin main
 ```
 
 ---
 
 ## 📋 What You Need:
 
-1. ✅ Heroku CLI installed
+1. ✅ Render account & dashboard access
 2. ✅ Vercel CLI installed (`npm i -g vercel`)
 3. ✅ MongoDB Atlas connection string
 4. ✅ Git initialized in project
@@ -60,9 +60,9 @@ git push heroku main
 
 ## 📝 Important Notes:
 
-- Replace `yourname` with your actual name
-- Replace `your_mongodb_uri` with your MongoDB Atlas connection string
-- Replace `your-heroku-app` with your actual Heroku app name
+ - Replace `yourname` with your actual name
+ - Replace `your_mongodb_uri` with your MongoDB Atlas connection string
+ - Replace `your-backend.onrender.com` with your actual Render backend URL
 - The frontend will auto-deploy on git push if connected to Vercel
 
 ---
@@ -70,12 +70,12 @@ git push heroku main
 ## 🔗 After Deployment:
 
 Your app will be live at:
-- **Backend**: `https://your-app-name.herokuapp.com`
+- **Backend**: `https://your-backend.onrender.com`
 - **Frontend**: `https://your-project.vercel.app`
 
 Test the health endpoint:
 ```bash
-curl https://your-app-name.herokuapp.com/api/health
+curl https://your-backend.onrender.com/api/health
 ```
 
 ---

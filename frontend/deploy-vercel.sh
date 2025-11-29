@@ -12,7 +12,7 @@ fi
 
 # Get backend URL from user
 echo ""
-read -p "Enter your Heroku backend URL (e.g., https://your-app.herokuapp.com): " BACKEND_URL
+read -p "Enter your Render backend URL (e.g., https://your-backend.onrender.com): " BACKEND_URL
 
 # Create .env.production
 echo ""
