@@ -1,0 +1,18 @@
+services:
+  - name: expense-tracker-backend
+    type: web
+    env: node
+    plan: free
+    repo: "https://github.com/Sukanya1212/expense-tracker"
+    branch: main
+    root: backend
+    buildCommand: npm install && npm run build
+    startCommand: node dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        value: ""
+      - key: JWT_SECRET
+        value: ""
+    autoDeploy: true
