@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
     // Use VITE_API_URL from environment when provided, otherwise default to Render backend URL
-    baseURL: import.meta.env.VITE_API_URL || 'https://expense-tracker-backend-0kj9.onrender.com/api',
+    baseURL: (import.meta as any).env?.VITE_API_URL || 'https://expense-tracker-backend-0kj9.onrender.com/api',
     headers: {
         'Content-Type': 'application/json',
     },

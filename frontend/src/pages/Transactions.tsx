@@ -74,7 +74,7 @@ const Transactions: React.FC = () => {
         loadTransactions();
     };
 
-    const handlePageChange = (newPage: number) => {
+    const handlePageChange = (_newPage: number) => {
         dispatch(setFilters({ ...filters }));
         // In a real app, you'd update pagination state here
     };
