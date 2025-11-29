@@ -18,7 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/transactions', transactionRoutes);
+// Keep original route and provide a compatibility alias `/api/expenses`
+app.use(['/api/transactions', '/api/expenses'], transactionRoutes);
 
 // Health check route
 app.get('/api/health', (_req: Request, res: Response) => {
