@@ -13,10 +13,14 @@ export default defineConfig({
       }
     }
   },
-
+  // Ensure production preview binds to the host/port provided by the environment
   preview: {
-    host: true,
-    port: 4173,
-    allowedHosts: ['expense-tracker-3f10.onrender.com']
-  }
+    host: process.env.HOST === '0.0.0.0' ? '0.0.0.0' : true,
+    port: Number(process.env.PORT) || 4173,
+    // allow external host access when previewing on Render
+    hostHeader: undefined as any
+  },
+
+  // Ensure built assets use root base path
+  base: '/'
 })
