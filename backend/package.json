@@ -4,7 +4,7 @@
   "description": "Backend API for Expense Tracker MERN Application",
   "main": "dist/server.js",
   "engines": {
-    "node": "18.x",
+    "node": "20.x",
     "npm": "9.x"
   },
   "scripts": {
