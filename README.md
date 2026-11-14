@@ -1,3 +1,4 @@
+About this project 
 # 💰 Expense Tracker - MERN Stack Application
 
 A complete, production-ready expense tracking application built with the MERN stack (MongoDB, Express.js, React, Node.js) featuring authentication, transaction management, filtering, and beautiful data visualizations.
